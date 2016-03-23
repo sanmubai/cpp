@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+// 单向链表的增删改 ，反转，打印
 struct LIST{
 	int data;
 	struct LIST *next;
@@ -100,14 +101,81 @@ int insertList(struct LIST *Head,int x,int y){
 	return 0;
 }
 int deleteList(struct LIST *Head,int x){
+	if(Head==NULL){
+		return -1;
+	}
+
+	struct LIST *pHead=NULL,*pCur=NULL,*pPre=NULL;
+
+	pHead=Head;
+	pCur=pHead->next;
+	pPre=pHead;
+
+	while(pCur != NULL){
+		if(pCur->data == x){
+			
+			break;
+		}
+		pPre=pCur;
+		pCur=pCur->next;
+	}
+
+	if(pCur == NULL){
+		printf("没有找到节点：%d\n", x);
+		return -2;
+	}
+	pPre->next=pCur->next;
 
 	return 0;
 }
 int destroyList(struct LIST *Head){
 
+	if(Head == NULL){
+		return -1;
+	}
+	struct LIST *pHead=NULL,*pCur=NULL,*pT=NULL;
+	pHead=Head;
+	pCur=pHead;
+
+	while(pCur != NULL){
+
+		pT=pCur->next;
+		free(pCur);
+		pCur=pT;
+	}
+
 	return 0;
 }
 int reverseList(struct LIST *Head){
+	if(Head == NULL) {
+		return -1;
+	}
+
+	struct LIST *pHead=NULL,*pCur=NULL,*pPre=NULL,*pT=NULL;
+
+	pHead=Head;
+	pPre=pHead->next;
+	pCur=pPre->next;
+
+	pPre->next=NULL;
+
+	if(pCur==NULL){
+		return 0;
+	}
+
+	while(pCur != NULL){
+
+		pT=pCur->next;
+
+		pCur->next=pPre;
+
+		pPre=pCur;
+
+		pCur=pT;
+	}
+
+	pHead->next=pPre;
+
 
 	return 0;
 }
@@ -142,4 +210,14 @@ int main(){
 	printf("insert value y before x:\n");
 	insertList(pHead,x,y);
 	printList(pHead);
+
+	printf("deleteList x:\n");
+	deleteList(pHead,20);
+	printList(pHead);
+
+	printf("reverseList:\n");
+	reverseList(pHead);
+	printList(pHead);
+
+	destroyList(pHead);
 }
