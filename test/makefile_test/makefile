@@ -11,7 +11,7 @@ start:$(OBJS)
 	@echo '-------------ok------------'
 
 .c.o:
-	$(CC) -o $@ -c $<
+	$(CC) -Wall -g -o $@ -c $<
 
 clean:
 	rm -rf $(OBJS)
