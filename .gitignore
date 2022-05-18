@@ -97,7 +97,7 @@ tags
 # Cmake files
 CMakeCache.txt
 CMakeFiles
-Makefile
+#Makefile
 cmake_install.cmake
 CMakeLists.txt.user
 templates/js-template-default/frameworks/js-bindings
@@ -116,3 +116,7 @@ myruntime/*
 publish/*
 
 *.o
+
+cmake-build-debug/
+.main.o.d
+*.o.d
