@@ -25,7 +25,7 @@ export CFLAGS LDFLAGS
 TOPDIR := $(shell pwd)
 export TOPDIR
 
-TARGET := link
+TARGET := bin/link
 
 
 obj-y += main.o
