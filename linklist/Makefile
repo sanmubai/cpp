@@ -1,2 +1,2 @@
-#obj-y += debug.o
 obj-y += linklist.o
+obj-y += data.o
