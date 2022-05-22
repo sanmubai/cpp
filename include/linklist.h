@@ -36,9 +36,9 @@ typedef struct list{
 typedef list_t * list_pt;
 
 list_pt create(void);
-int list_insert(list_t ** list_head,int num,void *new_data);
-void list_delete(list_t ** list_head,int num);
-void list_modify(list_t ** list_head,int num,void *new_data);
-int list_search(list_t ** list_head,void * find_data,int(*compare)(void*,void*));
-void list_travel(list_t ** list_head);
+int list_insert(list_pt  list_head,int num,void *new_data);
+void list_delete(list_pt list_head,int num);
+void list_modify(list_pt list_head,int num,void *new_data);
+int list_search(list_pt list_head,void * find_data,int(*compare)(void*,void*));
+void list_travel(list_pt list_head);
 #endif //CPP_LINKLIST_H
