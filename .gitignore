@@ -120,4 +120,4 @@ publish/*
 cmake-build-debug/
 .main.o.d
 *.o.d
-sync.sh
+sync*.sh
